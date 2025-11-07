@@ -35,13 +35,27 @@
         <label for="colorPicker">Color del titulo: </label>
         <input type="color" id="colorPicker" value="#00FFFF">
     </div>
+
+	<div class="controls">
+        <label for="bgcolorPicker">Color del fondo: </label>
+        <input type="color" id="bgcolorPicker" value="#00FFFF">
+		<button id="bgcolorPicker">Cambiar fondo</button>
+    </div>
+
     <script>
         const titulo = document.getElementById('titulo');
         const colorPicker = document.getElementById('colorPicker');
+		const bgcolorPicker = document.getElementById('bgcolorPicker');
+		const bgButton = document.getElementById('bgcolorPicker');
+
         // Cambia el color del título en tiempo real
         colorPicker.addEventListener('input', (e) => {
             titulo.style.color = e.target.value;
         });
+
+		bgButton.addEventListener('click', () => {
+			document.body.style.backgroundColor = bgcolorPicker.value;
+		});	
     </script>
 </body>
 </html>
