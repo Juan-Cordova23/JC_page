@@ -25,12 +25,28 @@
             display: flex;
             gap: .5rem;
             align-items: center;
+            margin-bottonm: 1rem;
         }
         label { font-size: .95rem; }
+
+        #media {
+        width: 200px;         
+        height: auto;         
+        margin-top: 1rem;     
+        cursor: pointer;
+        transition: transform .3s ease;
+
+        }
+
+        #media:hover {
+            transform: scale(1.05);
+        }
+
     </style>
 </head>
 <body>
     <h1 id="titulo">¡Hola a la mas preciosa de todo este mundo!</h1>
+    
     <div class="controls">
         <label for="colorPicker">Color del titulo: </label>
         <input type="color" id="colorPicker" value="#00FFFF">
@@ -42,20 +58,34 @@
 		<button id="bgcolorPicker">Cambiar fondo</button>
     </div>
 
+
+    <img id="media" src="c:\Users\juanc\Downloads\WhatsApp Image 2025-11-07 at 9.11.59 AM.jpeg" alt="Imagen interactiva">
+    
+
+
+    <audio id="hoverSound" src="tu-sonido.mp3" preload="auto"></audio>
+
     <script>
         const titulo = document.getElementById('titulo');
         const colorPicker = document.getElementById('colorPicker');
 		const bgcolorPicker = document.getElementById('bgcolorPicker');
 		const bgButton = document.getElementById('bgcolorPicker');
+        const media = document.getElementById('media');
+        const hoverSound = document.getElementById('hoverSound');
 
         // Cambia el color del título en tiempo real
         colorPicker.addEventListener('input', (e) => {
             titulo.style.color = e.target.value;
         });
 
-		bgButton.addEventListener('click', () => {
+		bgButton.addEventListener('input', () => {
 			document.body.style.backgroundColor = bgcolorPicker.value;
 		});	
+
+        media.addEventListener('mouseenter', () => {
+            hoverSound.currentTime = 0; 
+            hoverSound.play();
+        });
     </script>
 </body>
 </html>
