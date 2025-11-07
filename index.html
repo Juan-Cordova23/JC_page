@@ -1,8 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <title>Hola Mundo</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #45bd6d;
+        }
+        h1 {
+            text-align: center;
+            margin: 0 0 1rem 0;
+            color: #00FFFF;
+        }
+        .controls {
+            display: flex;
+            gap: .5rem;
+            align-items: center;
+        }
+        label { font-size: .95rem; }
+    </style>
 </head>
 <body>
-	<p>hola mundo!</p>
-<body>
-<html>
+    <h1 id="titulo">¡Hola a la mas preciosa de todo este mundo!</h1>
+    <div class="controls">
+        <label for="colorPicker">Color del titulo: </label>
+        <input type="color" id="colorPicker" value="#00FFFF">
+    </div>
+    <script>
+        const titulo = document.getElementById('titulo');
+        const colorPicker = document.getElementById('colorPicker');
+        // Cambia el color del título en tiempo real
+        colorPicker.addEventListener('input', (e) => {
+            titulo.style.color = e.target.value;
+        });
+    </script>
+</body>
+</html>
